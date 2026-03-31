@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solidity Lab Simulator - Lab 1</title>
+    <style>
+        body {
+            background-color: #0a0e27;
+            font-family: 'Segoe UI', sans-serif;
+            color: #fff;
+            margin: 0;
+            overflow: hidden;
+        }
+        #launcher, #lab1 {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        header {
+            background: #111633;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .tab {
+            display: flex;
+            cursor: pointer;
+            padding: 10px;
+            border-bottom: 2px solid #00d4ff;
+        }
+        .tab:hover {
+            background: #1a1f4a;
+        }
+        .editor, .controls, .interaction {
+            float: left;
+            width: 32%;
+            padding: 10px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+        }
+        #editor {
+            background: #111633;
+            border: 1px solid #00d4ff;
+            color: #fff;
+            height: 100%;
+        }
+        button {
+            background: #00d4ff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            color: #fff;
+        }
+        button:hover {
+            background: #7c3aed;
+        }
+        .console {
+            background: #1a1f4a;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 150px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Solidity Lab Simulator - Lab 1
+</header>
+
+<div id="launcher" class="active">
+    <h2>Lab 1: HelloWorld & HelloNumber</h2>
+    <div class="tab" onclick="navigateTo('lab1')">Lab 1 시작하기</div>
+    <p>진행률: <span id="progress">0/3 Labs</span></p>
+</div>
+
+<div id="lab1">
+    <div class="tab" onclick="showTab(1)">HelloWorld 기본</div>
+    <div class="tab" onclick="showTab(2)">HelloWorld 확장</div>
+    <div class="tab" onclick="showTab(3)">HelloNumber</div>
+
+    <div class="editor" id="editor">
+        <textarea id="code" rows="20" style="width: 100%; color: #fff; background: #111633;"></textarea>
+        <button onclick="compileCode()">컴파일</button>
+        <button onclick="deployCode()">배포</button>
+    </div>
+    
+    <div class="controls">
+        <h3>컨트롤 패널</h3>
+        <p>계정 정보</p>
+        <p>블록체인 상태</p>
+        <p>실습 가이드</p>
+    </div>
+    
+    <div class="interaction">
+        <h3>함수 호출</h3>
+        <p>배포된 컨트랙트의 함수 호출 UI</p>
+    </div>
+</div>
+
+<div class="console" id="console">
+    <h3>콘솔</h3>
+    <div id="consoleOutput"></div>
+</div>
+
+<script>
+    let currentTab = 1;
+
+    function navigateTo(page) {
+        document.getElementById('launcher').classList.remove('active');
+        document.getElementById('lab1').classList.add('active');
+    }
+
+    function showTab(tab) {
+        currentTab = tab;
+        // 탭 로직 추가
+        console.log('현재 탭:', tab);
+    }
+
+    function compileCode() {
+        // 컴파일 로직 추가
+        console.log('코드 컴파일 중...');
+    }
+
+    function deployCode() {
+        // 배포 로직 추가
+        console.log('코드 배포 중...');
+    }
+</script>
+
+</body>
+</html>
